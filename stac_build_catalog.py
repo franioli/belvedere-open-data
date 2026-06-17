@@ -1,18 +1,42 @@
 import glob
 import json
 import os
+import urllib.request
 from datetime import datetime
 
 import pystac
 from pyproj import Transformer
 from shapely.geometry import box, mapping
 
-ZENODO_FILES_URL = "https://zenodo.org/records/10817029/files"
+# Concept record ID — stays constant across all Zenodo versions.
+# The API resolves it to the latest version automatically.
+ZENODO_CONCEPT_ID = "10817029"
+
 DATA_DIR = "./open-data"
 
 # Set to the GitHub Pages root URL to embed absolute `self` links in every JSON.
 # Leave empty to produce a relative-only (self-contained) catalog.
 CATALOG_BASE_URL = "https://franioli.github.io/belvedere-open-data"
+
+
+def get_zenodo_files_url(concept_id: str) -> str:
+    """Return the files base URL for the latest version of a Zenodo record.
+
+    Zenodo resolves the concept record ID to the latest published version,
+    so this always points to the most recent deposit without any manual update.
+    Falls back to a hardcoded URL if the API is unreachable.
+    """
+    api_url = f"https://zenodo.org/api/records/{concept_id}"
+    try:
+        with urllib.request.urlopen(api_url, timeout=10) as resp:
+            record = json.loads(resp.read())
+        latest_id = record["id"]
+        print(f"Zenodo latest record ID: {latest_id}")
+        return f"https://zenodo.org/records/{latest_id}/files"
+    except Exception as exc:
+        fallback = f"https://zenodo.org/records/{concept_id}/files"
+        print(f"Warning: could not fetch latest Zenodo record ({exc}). Using fallback: {fallback}")
+        return fallback
 
 
 def parse_date(date_str, year):

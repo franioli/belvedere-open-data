@@ -49,6 +49,11 @@
   },
   "links": [
     {
+      "rel": "self",
+      "href": "https://franioli.github.io/belvedere-open-data/belvedere-monitoring/belv_2016_uav/belv_2016_uav.json",
+      "type": "application/geo+json"
+    },
+    {
       "rel": "root",
       "href": "../../catalog.json",
       "type": "application/json"
