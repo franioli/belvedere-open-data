@@ -1,0 +1,97 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "belv_2022_uav",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.927507244871828,
+          45.94012336826701
+        ],
+        [
+          7.927507244871828,
+          45.971142613543996
+        ],
+        [
+          7.901354705339267,
+          45.971142613543996
+        ],
+        [
+          7.901354705339267,
+          45.94012336826701
+        ],
+        [
+          7.927507244871828,
+          45.94012336826701
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    7.901354705339267,
+    45.94012336826701,
+    7.927507244871828,
+    45.971142613543996
+  ],
+  "properties": {
+    "year": 2022,
+    "platform": "uav",
+    "license": "CC BY 4.0",
+    "original_crs": "EPSG:7791",
+    "drone_model": "DJI Matrice 300 RTK",
+    "camera_model": "DJI Zenmuse P1",
+    "rmse_global_m": 0.116,
+    "point_density_pt_m2": 66.5,
+    "datetime": "2022-07-25T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "dsm": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2022_uav_dsm_20cm_ortho_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2022_uav_dsm_20cm_ortho_cog.tif",
+      "roles": [
+        "data",
+        "elevation"
+      ]
+    },
+    "orthophoto": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2022_uav_orthophoto_20cm_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2022_uav_orthophoto_20cm_cog.tif",
+      "roles": [
+        "data",
+        "visual"
+      ]
+    },
+    "pointcloud": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2022_uav_pcd_copc.laz",
+      "type": "application/vnd.laszip+copc",
+      "title": "belv_2022_uav_pcd_copc.laz",
+      "roles": [
+        "data",
+        "pointcloud"
+      ]
+    }
+  },
+  "collection": "belvedere-monitoring"
+}

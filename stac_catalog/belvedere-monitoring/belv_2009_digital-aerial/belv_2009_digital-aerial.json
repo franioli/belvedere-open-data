@@ -1,0 +1,97 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "belv_2009_digital-aerial",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.941267441620439,
+          45.93010240779988
+        ],
+        [
+          7.941267441620439,
+          45.987511301512
+        ],
+        [
+          7.888161530881262,
+          45.987511301512
+        ],
+        [
+          7.888161530881262,
+          45.93010240779988
+        ],
+        [
+          7.941267441620439,
+          45.93010240779988
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    7.888161530881262,
+    45.93010240779988,
+    7.941267441620439,
+    45.987511301512
+  ],
+  "properties": {
+    "year": 2009,
+    "platform": "digital-aerial",
+    "license": "CC BY 4.0",
+    "original_crs": "EPSG:7791",
+    "drone_model": "Aerial platform",
+    "camera_model": "Z/I-Imaging DMC",
+    "rmse_global_m": 0.39,
+    "point_density_pt_m2": 2.7,
+    "datetime": "2009-08-01T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "dsm": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2009_digital-aerial_dsm_40cm_ortho_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2009_digital-aerial_dsm_40cm_ortho_cog.tif",
+      "roles": [
+        "data",
+        "elevation"
+      ]
+    },
+    "orthophoto": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2009_digital-aerial_orthophoto_40cm_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2009_digital-aerial_orthophoto_40cm_cog.tif",
+      "roles": [
+        "data",
+        "visual"
+      ]
+    },
+    "pointcloud": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2009_digital-aerial_pcd_copc.laz",
+      "type": "application/vnd.laszip+copc",
+      "title": "belv_2009_digital-aerial_pcd_copc.laz",
+      "roles": [
+        "data",
+        "pointcloud"
+      ]
+    }
+  },
+  "collection": "belvedere-monitoring"
+}

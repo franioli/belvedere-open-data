@@ -1,0 +1,109 @@
+{
+  "type": "Collection",
+  "id": "belvedere-monitoring",
+  "stac_version": "1.1.0",
+  "description": "UAV and historical photogrammetric surveys of Belvedere Glacier (1977\u20132023). Each item contains a DSM (Cloud-Optimized GeoTIFF), an orthophoto (COG), and a point cloud (COPC .laz).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_1977_histo-aerial/belv_1977_histo-aerial.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_1991_histo-aerial/belv_1991_histo-aerial.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2001_histo-aerial/belv_2001_histo-aerial.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2009_digital-aerial/belv_2009_digital-aerial.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2015_uav/belv_2015_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2016_uav/belv_2016_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2017_uav/belv_2017_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2018_uav/belv_2018_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2019_uav/belv_2019_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2020_uav/belv_2020_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2021_uav/belv_2021_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2022_uav/belv_2022_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2023_uav/belv_2023_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./belv_2024_uav/belv_2024_uav.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          7.93,
+          45.87,
+          7.97,
+          45.91
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "1977-09-16T00:00:00Z",
+          "2024-07-24T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-4.0"
+}

@@ -1,0 +1,97 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "belv_2016_uav",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.927986196721459,
+          45.939711500170034
+        ],
+        [
+          7.927986196721459,
+          45.97093829747439
+        ],
+        [
+          7.899894755333247,
+          45.97093829747439
+        ],
+        [
+          7.899894755333247,
+          45.939711500170034
+        ],
+        [
+          7.927986196721459,
+          45.939711500170034
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    7.899894755333247,
+    45.939711500170034,
+    7.927986196721459,
+    45.97093829747439
+  ],
+  "properties": {
+    "year": 2016,
+    "platform": "uav",
+    "license": "CC BY 4.0",
+    "original_crs": "EPSG:7791",
+    "drone_model": "SenseFly eBee",
+    "camera_model": "Canon PowerShot S110",
+    "rmse_global_m": 0.107,
+    "point_density_pt_m2": 11.1,
+    "datetime": "2016-10-20T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "dsm": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2016_uav_dsm_20cm_ortho_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2016_uav_dsm_20cm_ortho_cog.tif",
+      "roles": [
+        "data",
+        "elevation"
+      ]
+    },
+    "orthophoto": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2016_uav_orthophoto_20cm_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2016_uav_orthophoto_20cm_cog.tif",
+      "roles": [
+        "data",
+        "visual"
+      ]
+    },
+    "pointcloud": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2016_uav_pcd_copc.laz",
+      "type": "application/vnd.laszip+copc",
+      "title": "belv_2016_uav_pcd_copc.laz",
+      "roles": [
+        "data",
+        "pointcloud"
+      ]
+    }
+  },
+  "collection": "belvedere-monitoring"
+}

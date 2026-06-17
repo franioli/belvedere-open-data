@@ -1,0 +1,97 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "belv_2018_uav",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.927984749594553,
+          45.9401591068178
+        ],
+        [
+          7.927984749594553,
+          45.97114709413854
+        ],
+        [
+          7.903763846243676,
+          45.97114709413854
+        ],
+        [
+          7.903763846243676,
+          45.9401591068178
+        ],
+        [
+          7.927984749594553,
+          45.9401591068178
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    7.903763846243676,
+    45.9401591068178,
+    7.927984749594553,
+    45.97114709413854
+  ],
+  "properties": {
+    "year": 2018,
+    "platform": "uav",
+    "license": "CC BY 4.0",
+    "original_crs": "EPSG:7791",
+    "drone_model": "Parrot Disco",
+    "camera_model": "Hawkeye Firefly 8S",
+    "rmse_global_m": 0.15,
+    "point_density_pt_m2": 26.5,
+    "datetime": "2018-07-23T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "dsm": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2018_uav_dsm_20cm_ortho_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2018_uav_dsm_20cm_ortho_cog.tif",
+      "roles": [
+        "data",
+        "elevation"
+      ]
+    },
+    "orthophoto": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2018_uav_orthophoto_20cm_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2018_uav_orthophoto_20cm_cog.tif",
+      "roles": [
+        "data",
+        "visual"
+      ]
+    },
+    "pointcloud": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2018_uav_pcd_copc.laz",
+      "type": "application/vnd.laszip+copc",
+      "title": "belv_2018_uav_pcd_copc.laz",
+      "roles": [
+        "data",
+        "pointcloud"
+      ]
+    }
+  },
+  "collection": "belvedere-monitoring"
+}

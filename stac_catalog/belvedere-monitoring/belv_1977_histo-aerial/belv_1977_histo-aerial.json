@@ -1,0 +1,97 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "belv_1977_histo-aerial",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.951581596936785,
+          45.92977312603115
+        ],
+        [
+          7.951581596936785,
+          45.98756319251793
+        ],
+        [
+          7.884297339358605,
+          45.98756319251793
+        ],
+        [
+          7.884297339358605,
+          45.92977312603115
+        ],
+        [
+          7.951581596936785,
+          45.92977312603115
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    7.884297339358605,
+    45.92977312603115,
+    7.951581596936785,
+    45.98756319251793
+  ],
+  "properties": {
+    "year": 1977,
+    "platform": "histo-aerial",
+    "license": "CC BY 4.0",
+    "original_crs": "EPSG:7791",
+    "drone_model": "Aerial platform",
+    "camera_model": "Leica Wild RC10",
+    "rmse_global_m": 0.66,
+    "point_density_pt_m2": 1.6,
+    "datetime": "1977-09-16T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "dsm": {
+      "href": "https://zenodo.org/records/10817029/files/belv_1977_histo-aerial_dsm_50cm_ortho_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_1977_histo-aerial_dsm_50cm_ortho_cog.tif",
+      "roles": [
+        "data",
+        "elevation"
+      ]
+    },
+    "orthophoto": {
+      "href": "https://zenodo.org/records/10817029/files/belv_1977_histo-aerial_orthophoto_50cm_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_1977_histo-aerial_orthophoto_50cm_cog.tif",
+      "roles": [
+        "data",
+        "visual"
+      ]
+    },
+    "pointcloud": {
+      "href": "https://zenodo.org/records/10817029/files/belv_1977_histo-aerial_pcd_copc.laz",
+      "type": "application/vnd.laszip+copc",
+      "title": "belv_1977_histo-aerial_pcd_copc.laz",
+      "roles": [
+        "data",
+        "pointcloud"
+      ]
+    }
+  },
+  "collection": "belvedere-monitoring"
+}

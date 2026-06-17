@@ -1,0 +1,106 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "belv_2020_uav",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.927707245694057,
+          45.94083365553952
+        ],
+        [
+          7.927707245694057,
+          45.97027684786444
+        ],
+        [
+          7.902775247794907,
+          45.97027684786444
+        ],
+        [
+          7.902775247794907,
+          45.94083365553952
+        ],
+        [
+          7.927707245694057,
+          45.94083365553952
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    7.902775247794907,
+    45.94083365553952,
+    7.927707245694057,
+    45.97027684786444
+  ],
+  "properties": {
+    "year": 2020,
+    "platform": "uav",
+    "license": "CC BY 4.0",
+    "original_crs": "EPSG:7791",
+    "drone_model": "Parrot Disco",
+    "camera_model": "Hawkeye Firefly 8S",
+    "rmse_global_m": 0.211,
+    "point_density_pt_m2": 22.4,
+    "datetime": "2020-07-26T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "dsm": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2020_uav_dsm_20cm_ortho_lower_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2020_uav_dsm_20cm_ortho_lower_cog.tif",
+      "roles": [
+        "data",
+        "elevation"
+      ]
+    },
+    "orthophoto": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2020_uav_orthophoto_20cm_lower_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2020_uav_orthophoto_20cm_lower_cog.tif",
+      "roles": [
+        "data",
+        "visual"
+      ]
+    },
+    "orthophoto_2": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2020_uav_orthophoto_20cm_upper_cog.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "belv_2020_uav_orthophoto_20cm_upper_cog.tif",
+      "roles": [
+        "data",
+        "visual"
+      ]
+    },
+    "pointcloud": {
+      "href": "https://zenodo.org/records/10817029/files/belv_2020_uav_pcd_copc.laz",
+      "type": "application/vnd.laszip+copc",
+      "title": "belv_2020_uav_pcd_copc.laz",
+      "roles": [
+        "data",
+        "pointcloud"
+      ]
+    }
+  },
+  "collection": "belvedere-monitoring"
+}
