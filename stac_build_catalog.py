@@ -8,9 +8,9 @@ import pystac
 from pyproj import Transformer
 from shapely.geometry import box, mapping
 
-# Concept record ID — stays constant across all Zenodo versions.
-# The API resolves it to the latest version automatically.
-ZENODO_CONCEPT_ID = "10817029"
+# Concept record ID — the permanent DOI that always resolves to the latest version.
+# DOI: https://doi.org/10.5281/zenodo.7842347
+ZENODO_CONCEPT_ID = "7842347"
 
 DATA_DIR = "./open-data"
 
@@ -20,15 +20,15 @@ CATALOG_BASE_URL = "https://franioli.github.io/belvedere-open-data"
 
 
 def get_zenodo_files_url(concept_id: str) -> str:
-    """Return the files base URL for the latest version of a Zenodo record.
+    """Return the files base URL for the latest published version of a Zenodo concept record.
 
-    Zenodo resolves the concept record ID to the latest published version,
-    so this always points to the most recent deposit without any manual update.
-    Falls back to a hardcoded URL if the API is unreachable.
+    Queries /api/records/{concept_id}/versions/latest to resolve the concept DOI
+    (which never changes) to the current latest version ID.
+    Falls back gracefully if the network is unavailable.
     """
-    api_url = f"https://zenodo.org/api/records/{concept_id}"
+    latest_url = f"https://zenodo.org/api/records/{concept_id}/versions/latest"
     try:
-        with urllib.request.urlopen(api_url, timeout=10) as resp:
+        with urllib.request.urlopen(latest_url, timeout=10) as resp:
             record = json.loads(resp.read())
         latest_id = record["id"]
         print(f"Zenodo latest record ID: {latest_id}")
@@ -53,6 +53,8 @@ def parse_date(date_str, year):
 
 
 def build_catalog():
+    zenodo_files_url = get_zenodo_files_url(ZENODO_CONCEPT_ID)
+
     catalog = pystac.Catalog(
         id="belvedere-glacier",
         description="Belvedere Glacier long-term monitoring Open Data",
@@ -153,7 +155,7 @@ def build_catalog():
                 continue
 
             filename = os.path.basename(filepath)
-            asset_url = f"{ZENODO_FILES_URL}/{filename}"
+            asset_url = f"{zenodo_files_url}/{filename}"
 
             if "dsm" in filename:
                 asset_counters["dsm"] += 1

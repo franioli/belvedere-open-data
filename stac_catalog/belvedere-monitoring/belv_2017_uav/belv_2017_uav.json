@@ -71,7 +71,7 @@
   ],
   "assets": {
     "dsm": {
-      "href": "https://zenodo.org/records/10817029/files/belv_2017_uav_dsm_20cm_ortho_cog.tif",
+      "href": "https://zenodo.org/records/19265915/files/belv_2017_uav_dsm_20cm_ortho_cog.tif",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "belv_2017_uav_dsm_20cm_ortho_cog.tif",
       "roles": [
@@ -80,7 +80,7 @@
       ]
     },
     "orthophoto": {
-      "href": "https://zenodo.org/records/10817029/files/belv_2017_uav_orthophoto_20cm_cog.tif",
+      "href": "https://zenodo.org/records/19265915/files/belv_2017_uav_orthophoto_20cm_cog.tif",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "belv_2017_uav_orthophoto_20cm_cog.tif",
       "roles": [
@@ -89,7 +89,7 @@
       ]
     },
     "pointcloud": {
-      "href": "https://zenodo.org/records/10817029/files/belv_2017_uav_pcd_copc.laz",
+      "href": "https://zenodo.org/records/19265915/files/belv_2017_uav_pcd_copc.laz",
       "type": "application/vnd.laszip+copc",
       "title": "belv_2017_uav_pcd_copc.laz",
       "roles": [

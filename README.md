@@ -51,6 +51,25 @@ belvedere_zenodo/
 
 ---
 
+## Adding a new survey year
+
+See [`DATA_PREPARATION.md`](DATA_PREPARATION.md) for the full step-by-step procedure.
+
+The short version:
+
+```bash
+# 1. Copy and edit metadata
+cp open-data/belv_2024_uav_meta.json open-data/belv_YYYY_uav_meta.json
+
+# 2. Process orthophoto, DSM, and point cloud into open-data/
+#    (see DATA_PREPARATION.md for the full commands)
+
+# 3. Regenerate the STAC catalog
+pixi run python stac_build_catalog.py
+```
+
+---
+
 ## Quick start for data users
 
 The easiest way to explore the dataset is through the STAC catalog. Open [`stac_usage_example.ipynb`](stac_usage_example.ipynb) in Jupyter or read [`README_stac.md`](README_stac.md) for a full explanation.
@@ -70,24 +89,6 @@ with rasterio.open(item.assets["dsm"].href) as src:
 
 ---
 
-## Adding a new survey year
-
-See [`DATA_PREPARATION.md`](DATA_PREPARATION.md) for the full step-by-step procedure.
-
-The short version:
-
-```bash
-# 1. Copy and edit metadata
-cp open-data/belv_2024_uav_meta.json open-data/belv_YYYY_uav_meta.json
-
-# 2. Process orthophoto, DSM, and point cloud into open-data/
-#    (see DATA_PREPARATION.md for the full commands)
-
-# 3. Regenerate the STAC catalog
-pixi run python stac_build_catalog.py
-```
-
----
 
 ## Environment
 
