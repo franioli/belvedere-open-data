@@ -60,7 +60,9 @@ The easiest way to explore the dataset is through the STAC catalog. Open [`stac_
 ```python
 import pystac, rasterio
 
-catalog = pystac.Catalog.from_file("stac_catalog/catalog.json")
+catalog = pystac.Catalog.from_file(
+    "https://franioli.github.io/belvedere-open-data/catalog.json"
+)
 item = catalog.get_child("belvedere-monitoring").get_item("belv_2022_uav")
 with rasterio.open(item.assets["dsm"].href) as src:
     data = src.read(1, out_shape=(src.height // 8, src.width // 8))

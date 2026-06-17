@@ -79,11 +79,11 @@ pixi install   # installs pystac, pyproj, shapely — see pyproject.toml
 ### Run
 
 ```bash
-pixi run python build_stack.py
+pixi run python stac_build_catalog.py
 ```
 
 This script:
-1. Reads every `data/*_meta.json` file.
+1. Reads every `open-data/*_meta.json` file.
 2. Reprojects the orthophoto footprint from EPSG:7791 → WGS84.
 3. Creates a STAC Item with all survey properties.
 4. Attaches the DSM, orthophoto, and point cloud as assets with Zenodo URLs.
@@ -91,7 +91,7 @@ This script:
 
 Re-run this script whenever you add a new survey year or update metadata.
 
-> **Important:** The `ZENODO_FILES_URL` constant at the top of `build_stack.py` must match the Zenodo record ID. Update it before publishing a new record version.
+> **Important:** The `ZENODO_FILES_URL` and `CATALOG_BASE_URL` constants at the top of `stac_build_catalog.py` must match the Zenodo record ID and the GitHub Pages URL. Update them before publishing a new record version.
 
 ---
 
@@ -107,15 +107,15 @@ https://zenodo.org/records/<RECORD_ID>/files/catalog.json
 
 No extra hosting is needed. The relative links between item JSONs work correctly as long as Zenodo preserves the folder structure (which it does when you upload a ZIP of the catalog folder or individual files maintaining paths).
 
-### Option B — GitHub Pages (recommended for live discovery)
+### Option B — GitHub Pages (deployed for this dataset)
 
-Push `stac_catalog/` to a `gh-pages` branch (or a `docs/` folder with Pages enabled). The catalog is then available at a stable, version-independent URL:
+The `stac_catalog/` folder is deployed automatically via GitHub Actions on every push to `main`. The catalog is live at:
 
 ```
-https://<username>.github.io/<repo>/stac_catalog/catalog.json
+https://franioli.github.io/belvedere-open-data/catalog.json
 ```
 
-This URL can be registered with public STAC indexes (e.g., [STAC Index](https://stacindex.org/)) so the dataset becomes discoverable by the wider community.
+The workflow (`.github/workflows/deploy-stac.yml`) deploys only the contents of `stac_catalog/` — not the whole repository. This URL is registered with [STAC Index](https://stacindex.org/) for community discovery.
 
 ### Option C — STAC API server (for large/growing catalogs)
 
@@ -137,13 +137,13 @@ pip install pystac rasterio
 ```python
 import pystac
 
-# Local catalog (after running build_stack.py)
-catalog = pystac.Catalog.from_file("./stac_catalog/catalog.json")
-
-# Remote catalog from Zenodo
+# Remote catalog — GitHub Pages (recommended)
 catalog = pystac.Catalog.from_file(
-    "https://zenodo.org/records/10817029/files/catalog.json"
+    "https://franioli.github.io/belvedere-open-data/catalog.json"
 )
+
+# Local catalog (after running stac_build_catalog.py)
+catalog = pystac.Catalog.from_file("./stac_catalog/catalog.json")
 ```
 
 #### List all surveys

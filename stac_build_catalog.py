@@ -8,7 +8,11 @@ from pyproj import Transformer
 from shapely.geometry import box, mapping
 
 ZENODO_FILES_URL = "https://zenodo.org/records/10817029/files"
-DATA_DIR = "./data"
+DATA_DIR = "./open-data"
+
+# Set to the GitHub Pages root URL to embed absolute `self` links in every JSON.
+# Leave empty to produce a relative-only (self-contained) catalog.
+CATALOG_BASE_URL = "https://franioli.github.io/belvedere-open-data"
 
 
 def parse_date(date_str, year):
@@ -166,6 +170,24 @@ def build_catalog():
 
     catalog.normalize_hrefs("./stac_catalog")
     catalog.save(catalog_type=pystac.CatalogType.SELF_CONTAINED)
+
+    # pystac strips self links for SELF_CONTAINED catalogs.
+    # Inject them as a post-processing step when a base URL is configured.
+    if CATALOG_BASE_URL:
+        for item in collection.get_items():
+            item_path = f"./stac_catalog/belvedere-monitoring/{item.id}/{item.id}.json"
+            with open(item_path) as f:
+                data = json.load(f)
+            self_url = f"{CATALOG_BASE_URL}/belvedere-monitoring/{item.id}/{item.id}.json"
+            if not any(lnk["rel"] == "self" for lnk in data.get("links", [])):
+                data["links"].insert(0, {
+                    "rel": "self",
+                    "href": self_url,
+                    "type": "application/geo+json",
+                })
+            with open(item_path, "w") as f:
+                json.dump(data, f, indent=2)
+
     print(f"STAC catalog saved to ./stac_catalog/ ({len(meta_files)} items)")
 
 
