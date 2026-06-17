@@ -1,40 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Belvedere Glacier — STAC Catalog</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 3rem auto; padding: 0 1.5rem; color: #222; line-height: 1.6; }
-    h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
-    .subtitle { color: #555; margin-top: 0; }
-    a { color: #1a6ec8; }
-    pre { background: #f4f4f4; border-radius: 6px; padding: 1rem; overflow-x: auto; font-size: 0.9rem; }
-    code { font-family: monospace; }
-    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-    th, td { text-align: left; padding: 0.45rem 0.75rem; border-bottom: 1px solid #ddd; }
-    th { background: #f4f4f4; font-weight: 600; }
-    .badge { display: inline-block; background: #1a6ec8; color: #fff; border-radius: 4px; padding: 0.15rem 0.55rem; font-size: 0.8rem; font-family: monospace; }
-    footer { margin-top: 3rem; font-size: 0.85rem; color: #777; border-top: 1px solid #eee; padding-top: 1rem; }
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 760px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+      color: #555;
+      margin-top: 0;
+    }
+
+    a {
+      color: #1a6ec8;
+    }
+
+    pre {
+      background: #f4f4f4;
+      border-radius: 6px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+
+    code {
+      font-family: monospace;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 0.45rem 0.75rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #f4f4f4;
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1a6ec8;
+      color: #fff;
+      border-radius: 4px;
+      padding: 0.15rem 0.55rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #777;
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+    }
   </style>
 </head>
+
 <body>
 
-<h1>Belvedere Glacier — Long-Term Monitoring</h1>
-<p class="subtitle">STAC Catalog &nbsp;·&nbsp; 14 photogrammetric surveys &nbsp;·&nbsp; 1977–2024</p>
+  <h1>Belvedere Glacier — Long-Term Monitoring</h1>
+  <p class="subtitle">STAC Catalog &nbsp;·&nbsp; 14 photogrammetric surveys &nbsp;·&nbsp; 1977–2024</p>
 
-<p>
-  This catalog indexes the open dataset of the <strong>Belvedere Glacier</strong> (Monte Rosa, Italian Alps),
-  including UAV and historical aerial photogrammetric surveys. Each item provides a
-  Cloud-Optimized GeoTIFF DSM, a COG orthophoto, and a COPC point cloud, all streamed
-  directly from <a href="https://doi.org/10.5281/zenodo.10817029">Zenodo</a>.
-</p>
+  <p>
+    This catalog indexes the open dataset of the <strong>Belvedere Glacier</strong> (Monte Rosa, Italian Alps),
+    including UAV and historical aerial photogrammetric surveys. Each item provides a
+    Cloud-Optimized GeoTIFF DSM, a COG orthophoto, and a COPC point cloud, all streamed
+    directly from <a href="https://doi.org/10.5281/zenodo.10817029">Zenodo</a>.
+  </p>
 
-<h2>Catalog entry point</h2>
-<pre><code>https://franioli.github.io/belvedere-open-data/catalog.json</code></pre>
+  <h2>Catalog entry point</h2>
+  <pre><code>https://franioli.github.io/belvedere-open-data/catalog.json</code></pre>
 
-<h2>Quick start (Python)</h2>
-<pre><code>import pystac, rasterio
+  <h2>Quick start (Python)</h2>
+  <pre><code>import pystac, rasterio
 
 catalog = pystac.Catalog.from_file(
     "https://franioli.github.io/belvedere-open-data/catalog.json"
@@ -51,39 +112,123 @@ with rasterio.open(item.assets["dsm"].href) as src:
     overview = src.read(1, out_shape=(src.height // 8, src.width // 8))
 </code></pre>
 
-<h2>Surveys included</h2>
-<table>
-  <thead><tr><th>ID</th><th>Year</th><th>Platform</th><th>Assets</th></tr></thead>
-  <tbody>
-    <tr><td><a href="belvedere-monitoring/belv_1977_histo-aerial/belv_1977_histo-aerial.json">belv_1977_histo-aerial</a></td><td>1977</td><td>Historical aerial</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_1991_histo-aerial/belv_1991_histo-aerial.json">belv_1991_histo-aerial</a></td><td>1991</td><td>Historical aerial</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2001_histo-aerial/belv_2001_histo-aerial.json">belv_2001_histo-aerial</a></td><td>2001</td><td>Historical aerial</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2009_digital-aerial/belv_2009_digital-aerial.json">belv_2009_digital-aerial</a></td><td>2009</td><td>Digital aerial</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2015_uav/belv_2015_uav.json">belv_2015_uav</a></td><td>2015</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2016_uav/belv_2016_uav.json">belv_2016_uav</a></td><td>2016</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2017_uav/belv_2017_uav.json">belv_2017_uav</a></td><td>2017</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2018_uav/belv_2018_uav.json">belv_2018_uav</a></td><td>2018</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2019_uav/belv_2019_uav.json">belv_2019_uav</a></td><td>2019</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2020_uav/belv_2020_uav.json">belv_2020_uav</a></td><td>2020</td><td>UAV</td><td>DSM · Orthophoto (lower + upper) · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2021_uav/belv_2021_uav.json">belv_2021_uav</a></td><td>2021</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2022_uav/belv_2022_uav.json">belv_2022_uav</a></td><td>2022</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2023_uav/belv_2023_uav.json">belv_2023_uav</a></td><td>2023</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-    <tr><td><a href="belvedere-monitoring/belv_2024_uav/belv_2024_uav.json">belv_2024_uav</a></td><td>2024</td><td>UAV</td><td>DSM · Orthophoto · Point cloud</td></tr>
-  </tbody>
-</table>
+  <h2>Surveys included</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Year</th>
+        <th>Platform</th>
+        <th>Assets</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_1977_histo-aerial/belv_1977_histo-aerial.json">belv_1977_histo-aerial</a>
+        </td>
+        <td>1977</td>
+        <td>Historical aerial</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_1991_histo-aerial/belv_1991_histo-aerial.json">belv_1991_histo-aerial</a>
+        </td>
+        <td>1991</td>
+        <td>Historical aerial</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2001_histo-aerial/belv_2001_histo-aerial.json">belv_2001_histo-aerial</a>
+        </td>
+        <td>2001</td>
+        <td>Historical aerial</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a
+            href="belvedere-monitoring/belv_2009_digital-aerial/belv_2009_digital-aerial.json">belv_2009_digital-aerial</a>
+        </td>
+        <td>2009</td>
+        <td>Digital aerial</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2015_uav/belv_2015_uav.json">belv_2015_uav</a></td>
+        <td>2015</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2016_uav/belv_2016_uav.json">belv_2016_uav</a></td>
+        <td>2016</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2017_uav/belv_2017_uav.json">belv_2017_uav</a></td>
+        <td>2017</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2018_uav/belv_2018_uav.json">belv_2018_uav</a></td>
+        <td>2018</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2019_uav/belv_2019_uav.json">belv_2019_uav</a></td>
+        <td>2019</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2020_uav/belv_2020_uav.json">belv_2020_uav</a></td>
+        <td>2020</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto (lower + upper) · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2021_uav/belv_2021_uav.json">belv_2021_uav</a></td>
+        <td>2021</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2022_uav/belv_2022_uav.json">belv_2022_uav</a></td>
+        <td>2022</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2023_uav/belv_2023_uav.json">belv_2023_uav</a></td>
+        <td>2023</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+      <tr>
+        <td><a href="belvedere-monitoring/belv_2024_uav/belv_2024_uav.json">belv_2024_uav</a></td>
+        <td>2024</td>
+        <td>UAV</td>
+        <td>DSM · Orthophoto · Point cloud</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h2>Links</h2>
-<ul>
-  <li><a href="https://doi.org/10.5281/zenodo.10817029">Zenodo record</a> — download full data files</li>
-  <li><a href="https://github.com/franioli/belvedere-open-data">GitHub repository</a> — scripts, catalog source, usage notebook</li>
-  <li><a href="https://thebelvedereglacier.it/">Web viewer</a> — interactive 3D point cloud browser</li>
-</ul>
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://doi.org/10.5281/zenodo.7842347">Zenodo record</a> — download full data files</li>
+    <li><a href="https://github.com/franioli/belvedere-open-data">GitHub repository</a> — scripts, catalog source, usage
+      notebook</li>
+    <li><a href="https://thebelvedereglacier.it/">Web viewer</a> — interactive 3D point cloud browser</li>
+  </ul>
 
-<footer>
-  Data license: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> &nbsp;·&nbsp;
-  STAC version 1.1.0 &nbsp;·&nbsp;
-  Politecnico di Milano — Department of Civil and Environmental Engineering
-</footer>
+  <footer>
+    Data license: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> &nbsp;·&nbsp;
+    STAC version 1.1.0 &nbsp;·&nbsp;
+    Politecnico di Milano — Department of Civil and Environmental Engineering
+  </footer>
 
 </body>
+
 </html>
