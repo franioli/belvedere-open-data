@@ -1,9 +1,9 @@
 # Belvedere Glacier — Long-Term Monitoring Open Dataset
 
 Scripts and catalog for the Belvedere Glacier open dataset published on Zenodo.  
-The dataset covers photogrammetric surveys of the glacier from **1977 to 2024**, acquired with historical aerial platforms, digital aerial cameras, and UAVs.
+The dataset covers photogrammetric surveys of the glacier from **1977 to present**, acquired with historical aerial platforms, digital aerial cameras, and UAVs.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10817029.svg)](https://doi.org/10.5281/zenodo.10817029)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7842347.svg)](https://doi.org/10.5281/zenodo.7842347)
 
 ---
 
